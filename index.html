@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>השוואת מסלולים</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- טעינת PapaParse מ-CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>השוואת מסלולים</h1>
+    
+    <!-- כפתור העלאת קובץ – הקלט מוסתר לחלוטין -->
+    <div class="upload-container">
+      <label class="btn file-upload-button" for="csvFileInput">בחר קובץ CSV</label>
+      <input type="file" id="csvFileInput" accept=".csv">
+    </div>
+    
+    <!-- סקשן מסלולים (מופיע לאחר העלאת קובץ) -->
+    <div id="plansSection" style="display: none;">
+      <h2>מסלולים</h2>
+      <div id="plansList"></div>
+      <div class="center">
+        <button id="addPlanButton" class="btn">הוסף מסלול</button>
+      </div>
+    </div>
+    
+    <!-- חלון בחירת תאריכים, מוסתר כברירת מחדל; סדר התאריכים מוגדר ל-LTR -->
+    <div id="filterSection" style="display: none;">
+      <div class="date-range" dir="ltr">
+        <input type="date" id="startDateInput">
+        <span class="arrow">→</span>
+        <input type="date" id="endDateInput">
+      </div>
+      <button id="closeFilterButton" class="btn">ביטול</button>
+    </div>
+
+        <!-- כפתור שינוי תקופה, מופיע מתחת למסלולים, תמיד במרכז -->
+
+    <div id="actionButtons" class="center" style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
+        <button id="toggleDateButton" class="btn" style="display: none; margin: 0 auto;">שנה תקופה</button>
+        <button id="applyFilterButton" class="btn btn-calc" style="display: none; margin: 0 auto;">חשב תוצאות</button>
+    </div>
+
+    
+    <!-- אזור תוצאות – מוסתר כברירת מחדל -->
+    <div id="results" style="display: none;"></div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+ 

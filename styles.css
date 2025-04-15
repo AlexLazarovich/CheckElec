@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Headings */
+h1, h2 {
+  color: #2e3d49;
+  margin: 10px 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+/* Button Base Style */
+.btn {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  margin: 10px;
+  display: inline-block;
+}
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Special style for "חשב תוצאות" button */
+.btn-calc {
+  background-color: #d63384;
+}
+.btn-calc:hover {
+  background-color: #b02a6f;
+}
+#applyFilterButton {
+  display: block;
+  margin: 0 auto;
+}
+
+/* File Upload */
+.upload-container {
+  margin: 30px 0;
+}
+#csvFileInput {
+  display: none !important;
+}
+
+/* Date Range Window */
+#filterSection {
+  background: #dde9f1;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+.date-range {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.date-range input {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  max-width: 120px;
+}
+
+/* Plans Section */
+#plansSection {
+  background: #dde9f1;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Plan Row Styling */
+.planRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e9eff5;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  direction: rtl;
+  white-space: nowrap;
+}
+.planRow .planInfo {
+  flex-grow: 1;
+  font-size: 1em;
+  padding: 0 10px;
+  text-align: right;
+  margin-right: 1em;
+}
+
+/* Buttons in plan row actions */
+.planRow .planActions button {
+  margin: 0 5px;
+  font-size: 0.9em;
+}
+
+/* Editing Form in Plan Row */
+.planEdit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  direction: rtl;
+}
+.planEdit input[type="text"] {
+  padding: 6px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1em;
+  max-width: 150px;
+  color: #888;
+}
+.planEdit input[type="text"].active {
+  color: #000;
+}
+.planEdit input[type="time"] {
+  padding: 6px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1em;
+  max-width: 90px;
+}
+.planEdit input[type="number"] {
+  padding: 6px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1em;
+  max-width: 60px;
+}
+
+/* Discount Container */
+.discount-container {
+  display: inline-flex;
+  align-items: center;
+}
+.discount-container input {
+  width: 50px;
+  text-align: right;
+}
+.discount-container .discount-sign {
+  margin-left: 5px;
+  font-size: 1em;
+  color: #555;
+}
+
+/* Time Fields in Plan Edit */
+.timeFieldsInput {
+  display: inline-flex;
+  align-items: center;
+  direction: ltr;
+}
+.timeFieldsInput .arrow {
+  margin: 0 5px;
+  font-size: 1em;
+  color: #555;
+}
+
+/* Results Styling */
+#results {
+  display: none;
+  text-align: center;
+  background: #dde9f1;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 1em;
+  max-width: 600px;
+}
+#results h2 {
+  text-align: center;
+}
+.results-dates {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  direction: ltr;
+}
+.results-dates .date-box {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #eef3f7;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1em;
+  margin: 0 5px;
+}
+.results-dates .arrow {
+  margin: 0 10px;
+  font-size: 1.2em;
+  color: #555;
+}
+.results-plans {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+}
+.results-plans li {
+  margin-bottom: 5px;
+}
+.best-plan {
+  font-weight: bold;
+  color: #d63384;
+  background: #c5e3f8;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* Centering Utility */
+.center {
+  text-align: center;
+}
+
+#actionButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;  /* Adjust spacing as needed */
+    margin-top: 30px;
+}  
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .planRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .planActions {
+    margin-top: 10px;
+  }
+}
