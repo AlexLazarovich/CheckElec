@@ -10,10 +10,124 @@
 <body>
   <div class="container">
     <h1>השוואת מסלולים</h1>
+
+    <!-- הסבר – מוסתר בהתחלה -->
+    <div id="helpSection" class="help-box" style="display: none;">
+      <h3>איך להשתמש באפליקציה?</h3>
+
+      <!-- Step 1 -->
+      <div class="help-step" data-step="1">
+        <div class="help-step-header">
+          <div class="help-step-number">1</div>
+          <span class="help-step-title">הורדת נתוני צריכה</span>
+        </div>
+        <div class="help-step-body">
+          <ul>
+            <li>התחברו לאזור האישי באתר חברת החשמל.</li>
+            <li>בתפריט «פעולות» בחרו ב‑«נתוני הצריכה שלך» → «מצב צריכה עדכני».</li>
+            <li>לחצו על «קבל קובץ צריכה למייל שלך».</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="help-step" data-step="2">
+        <div class="help-step-header">
+          <div class="help-step-number">2</div>
+          <span class="help-step-title">העלאת נתוני צריכה</span>
+        </div>
+        <div class="help-step-body">
+          <ul>
+            <li>לחצו על «העלה קובץ» והעלו את קובץ הצריכה שקיבלתם במייל.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="help-step" data-step="3">
+        <div class="help-step-header">
+          <div class="help-step-number">3</div>
+          <span class="help-step-title">עריכת מסלולים</span>
+        </div>
+        <div class="help-step-body">
+          <p>
+            המסלולים המוצגים כברירת מחדל הם הנפוצים ביותר המוצעים בשוק.
+            <br>
+            במידה והספק אשר תרצו להתחבר אליו מציע מסלולים חלופיים, תוכלו לערוך או להוסיף מסלולים לבחירתכם.
+            <br>
+            לחצו על «ערוך» כדי לשנות את שם המסלול, אחוז ההנחה ושעות ההנחה הנבחר.
+          </p>
+
+          <!-- כותרת קטנה לרשת הספקים -->
+          <h4 class="supplier-header">ספקים</h4>
+          <!-- רשת ספקי חשמל -->
+          <div class="supplier-grid">
+            <a href="https://bezeq-nrg.co.il/" class="supplier-item" target="_blank">
+              <img src="assets/bezeq-energy.png" alt="בזק אנרג'י">
+            </a>
+            <a href="https://cellcom.co.il/" class="supplier-item" target="_blank">
+              <img src="assets/cellcom-energy.png" alt="סלקום חשמל">
+            </a>
+            <a href="https://www.pazgas.co.il/" class="supplier-item" target="_blank">
+              <img src="assets/pazgaz-hashmal.png" alt="פזגז חשמל">
+            </a>
+            <a href="https://www.hot.net.il/heb/HOTEnergy/" class="supplier-item" target="_blank">
+              <img src="assets/hot-energy.png" alt="הוט אנרג'י">
+            </a>
+            <a href="https://www.electra-power.co.il/" class="supplier-item" target="_blank">
+              <img src="assets/electra-power.png" alt="אלקטרה פאוור">
+            </a>
+            <a href="https://www.amisragas.co.il/" class="supplier-item" target="_blank">
+              <img src="assets/amisragaz-energy.jpg" alt="אמישראגז חשמל">
+            </a>
+            <a href="https://www.partner.co.il/" class="supplier-item" target="_blank">
+              <img src="assets/partner-power.png" alt="פרטנר פאוור">
+            </a>
+            <a href="https://www.escoisrael.com/" class="supplier-item" target="_blank">
+              <img src="assets/esco.jpg" alt="ESCO ישראל">
+            </a>
+          </div>
+          <!-- סוף רשת ספקים -->
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="help-step" data-step="4">
+        <div class="help-step-header">
+          <div class="help-step-number">4</div>
+          <span class="help-step-title">חישוב תוצאות</span>
+        </div>
+        <div class="help-step-body">
+          <ul>
+            <li>לחצו על «חשב תוצאות»</li>
+            <li>האפליקציה תחשב את הסכום הסופי לכל מסלול ותציג את המסלול המשתלם ביותר בהתבסס על אופי הצריכה שלכם  (לפי מחיר 54.25 אג' לקוט"ש + מע"מ 18%).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="help-step" data-step="5">
+        <div class="help-step-header">
+          <div class="help-step-number">5</div>
+          <span class="help-step-title">שינוי תקופה – לא חובה</span>
+        </div>
+        <div class="help-step-body">
+          <ul>
+            <li>ברירת המחדל היא כל התקופה שבקובץ.</li>
+            <li>אם ברצונכם לבדוק טווח אחר—למשל שינויים בהרגלי צריכת החשמל בשבוע האחרון—לחצו על «שנה תקופה», בחרו תאריכים ולחצו «שמור».</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="center">
+        <button id="closeHelpButton" class="btn">סגור</button>
+      </div>
+    </div>
     
     <!-- כפתור העלאת קובץ – הקלט מוסתר לחלוטין -->
     <div class="upload-container">
-      <label class="btn file-upload-button" for="csvFileInput">בחר קובץ CSV</label>
+      <button id="toggleHelpButton" class="btn">הסבר</button>
+      <label class="btn file-upload-button" for="csvFileInput">העלה קובץ</label>
       <input type="file" id="csvFileInput" accept=".csv">
     </div>
     

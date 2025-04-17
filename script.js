@@ -44,6 +44,19 @@ function closeAllEditingPlans() {
 // העלאת קובץ CSV והגדרת טווח תאריכים
 // =============================
 document.getElementById("csvFileInput").addEventListener("change", function(e) {
+  // Whenever the user re‑uploads a CSV, hide the help section:
+  const helpSection = document.getElementById("helpSection");
+  const toggleHelpButton = document.getElementById("toggleHelpButton");
+  if (helpSection) {
+    helpSection.style.display = "none";
+    // reset any open step
+    document.querySelectorAll(".help-step.open")
+      .forEach(s => s.classList.remove("open"));
+  }
+  if (toggleHelpButton) {
+    toggleHelpButton.style.display = "inline-block";
+  }
+  
   // Clear existing results when reuploading file.
   clearResults();
   
@@ -277,7 +290,7 @@ function addPlanRow(plan) {
 
 function loadDefaultPlans() {
   document.getElementById("plansList").innerHTML = "";
-  addPlanRow({ id: 1, name: "מסלול 1", alwaysApply: true, discount: 7, startTime: "", endTime: "" });
+  addPlanRow({ id: 1, name: "מסלול 1", alwaysApply: true, discount: 6, startTime: "", endTime: "" });
   addPlanRow({ id: 2, name: "מסלול 2", alwaysApply: false, startTime: "07:00", endTime: "17:00", discount: 15 });
   addPlanRow({ id: 3, name: "מסלול 3", alwaysApply: false, startTime: "23:00", endTime: "07:00", discount: 20 });
   planCounter = 4;
@@ -383,6 +396,45 @@ function computeResults() {
 }
 
 document.getElementById("applyFilterButton").addEventListener("click", computeResults);
+
+// =============================
+// Toggle Help Section
+// =============================
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleHelpButton = document.getElementById("toggleHelpButton");
+  const helpSection = document.getElementById("helpSection");
+  const closeHelpButton = document.getElementById("closeHelpButton");
+
+  // Show help box
+  toggleHelpButton.addEventListener("click", () => {
+    helpSection.style.display = "block";
+    toggleHelpButton.style.display = "none";
+  });
+
+  // Close help box
+  closeHelpButton.addEventListener("click", () => {
+    helpSection.style.display = "none";
+    toggleHelpButton.style.display = "inline-block";
+    // close any open step
+    document.querySelectorAll(".help-step.open").forEach(s => s.classList.remove("open"));
+  });
+
+  // Accordion: step headers
+  document.querySelectorAll(".help-step-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const step = header.closest(".help-step");
+      // close others
+      document.querySelectorAll(".help-step.open").forEach(s => {
+        if (s !== step) s.classList.remove("open");
+      });
+      // toggle this one
+      step.classList.toggle("open");
+    });
+  });
+});
+
+
+
 
 // Clear results on any input change.
 document.querySelectorAll("input").forEach(input => {
