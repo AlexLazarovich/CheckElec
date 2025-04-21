@@ -290,7 +290,8 @@ function addPlanRow(plan) {
 
 function loadDefaultPlans() {
   document.getElementById("plansList").innerHTML = "";
-  addPlanRow({ id: 1, name: "מסלול 1", alwaysApply: true, discount: 6, startTime: "", endTime: "" });
+  addPlanRow({ id: 1, name: "מסלול 1", alwaysApply: true, discount: 6
+    , startTime: "", endTime: "" });
   addPlanRow({ id: 2, name: "מסלול 2", alwaysApply: false, startTime: "07:00", endTime: "17:00", discount: 15 });
   addPlanRow({ id: 3, name: "מסלול 3", alwaysApply: false, startTime: "23:00", endTime: "07:00", discount: 20 });
   planCounter = 4;
